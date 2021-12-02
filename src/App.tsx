@@ -7,8 +7,10 @@ export default function App() {
   return (
     <div className="App">
       <h1>Regalos:</h1>
-      {gifts.map((gift) => (
-        <p>{gift}</p>
+      {gifts.map((gift, index) => (
+        <p key={index} className="gift-text">
+          {gift}
+        </p>
       ))}
     </div>
   );

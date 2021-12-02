@@ -1,4 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap");
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  font-family: "Mountains of Christmas", cursive;
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  background-image: url("https://fondosmil.com/fondo/10472.jpg");
+  background-position: center;
+  background-size: cover;
+  backdrop-filter: brightness(50%);
+}
+
+::selection {
+  background: rgba(212, 245, 152, 0.5);
+}
+
 .App {
-  font-family: sans-serif;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  position: relative;
+  font-size: 5vw;
+  color: rgba(255, 217, 217);
+}
+
+.gift-text {
+  position: relative;
+  font-size: 5vw;
+  color: rgb(153, 253, 133);
+  text-decoration: underline;
 }
