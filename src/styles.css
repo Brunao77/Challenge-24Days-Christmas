@@ -9,7 +9,7 @@
   height: 100%;
 }
 
-html {
+body {
   background-image: url("https://fondosmil.com/fondo/10472.jpg");
   background-position: center;
   background-size: cover;
@@ -21,22 +21,21 @@ html {
 }
 
 .App {
-  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-repeat: no-repeat;
+  text-align: center;
 }
 
 h1 {
-  position: relative;
+  height: 7vw;
   font-size: 5vw;
   color: rgba(255, 217, 217);
 }
 
 .gift-text {
-  position: relative;
-  font-size: 5vw;
+  list-style: circle;
+  height: 3vw;
+  font-size: 2vw;
   color: rgb(153, 253, 133);
   text-decoration: underline;
 }
