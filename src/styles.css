@@ -12,8 +12,10 @@
 body {
   background-image: url("https://fondosmil.com/fondo/10472.jpg");
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   backdrop-filter: brightness(50%);
+  background-color: black;
 }
 
 ::selection {
