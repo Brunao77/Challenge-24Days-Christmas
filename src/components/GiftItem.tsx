@@ -1,21 +1,18 @@
 import React, { useState, useRef } from "react";
 
-export default function GiftItem({ gift, toggleDelete }) {
+export default function GiftItem({ gift, handleDelete }) {
   const { id, object, deleted } = gift;
 
   const handleGiftClick = () => {
-    toggleDelete(id);
+    handleDelete(id);
   };
 
   return (
     <li>
-      <input
-        type="radio"
-        className="gift-check"
-        checked={deleted}
-        onClick={handleGiftClick}
-      />
       <p className="gift-text">{object}</p>
+      <button className="delete-btn" onClick={handleGiftClick}>
+        X
+      </button>
     </li>
   );
 }

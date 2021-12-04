@@ -23,10 +23,8 @@ export default function App() {
     giftRef.current.value = null;
   };
 
-  const toggleDelete = (id) => {
-    const newGifts = [...gifts];
-    const gift = newGifts.find((gift) => gift.id === id);
-    gift.deleted = !gift.deleted;
+  const handleDelete = (id) => {
+    const newGifts = gifts.filter((gift) => gift.id !== id);
     setGifts(newGifts);
   };
 
@@ -43,7 +41,7 @@ export default function App() {
           <BsFillPencilFill className="icon-pen" />
         </button>
       </div>
-      <GiftList gifts={gifts} toggleDelete={toggleDelete} />
+      <GiftList gifts={gifts} handleDelete={handleDelete} />
     </div>
   );
 }
