@@ -1,19 +1,33 @@
 import React, { useState, useRef } from "react";
 import "./styles.css";
 import { BsFillPencilFill } from "react-icons/bs";
+import { v4 as uuidv4 } from "uuid";
+import GiftList from "./components/GiftList";
 
 export default function App() {
   const giftRef = useRef();
 
-  const [gifts, setGifts] = useState(["Medias", "Caramelos", "Vitel Tone"]);
+  const [gifts, setGifts] = useState([
+    { id: 1, object: "Medias", deleted: false },
+    { id: 2, object: "Vitel Tone", deleted: false },
+    { id: 3, object: "Caramelos", deleted: false }
+  ]);
 
   const handleAdd = () => {
     const gift = giftRef.current.value;
+
     if (gift === "") return;
 
-    setGifts([gift, ...gifts]);
+    setGifts([{ id: uuidv4(), object: gift, deleted: false }, ...gifts]);
 
     giftRef.current.value = null;
+  };
+
+  const toggleDelete = (id) => {
+    const newGifts = [...gifts];
+    const gift = newGifts.find((gift) => gift.id === id);
+    gift.deleted = !gift.deleted;
+    setGifts(newGifts);
   };
 
   return (
@@ -29,11 +43,7 @@ export default function App() {
           <BsFillPencilFill className="icon-pen" />
         </button>
       </div>
-      {gifts.map((gift, index) => (
-        <p key={index} className="gift-text">
-          {gift}
-        </p>
-      ))}
+      <GiftList gifts={gifts} toggleDelete={toggleDelete} />
     </div>
   );
 }
