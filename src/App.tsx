@@ -5,22 +5,39 @@ import { v4 as uuidv4 } from "uuid";
 import GiftList from "./components/GiftList";
 
 export default function App() {
-  const giftRef = useRef();
+  const giftNameRef = useRef();
+  const giftForRef = useRef();
 
   const [gifts, setGifts] = useState([
-    { id: 1, object: "Medias", deleted: false },
-    { id: 2, object: "Vitel Tone", deleted: false },
-    { id: 3, object: "Caramelos", deleted: false }
+    { id: 1, object: "Medias", forWhom: "aa", deleted: false },
+    { id: 2, object: "Vitel Tone", forWhom: "bb", deleted: false },
+    { id: 3, object: "Caramelos", forWhom: "cc", deleted: false }
   ]);
 
   const handleAdd = () => {
-    const gift = giftRef.current.value;
+    const giftName = giftNameRef.current.value;
+    const giftFor = giftForRef.current.value;
 
-    if (gift === "") return;
+    if (giftName === "") return;
 
-    setGifts([{ id: uuidv4(), object: gift, deleted: false }, ...gifts]);
+    if (!gifts.some((g) => g.object.toLowerCase() === giftName.toLowerCase())) {
+      setGifts([
+        { id: uuidv4(), object: giftName, forWhom: giftFor, deleted: false },
+        ...gifts
+      ]);
+    } else {
+      if (
+        !gifts.some((g) => g.forWhom.toLowerCase() === giftFor.toLowerCase())
+      ) {
+        setGifts([
+          { id: uuidv4(), object: giftName, forWhom: giftFor, deleted: false },
+          ...gifts
+        ]);
+      }
+    }
 
-    giftRef.current.value = null;
+    giftNameRef.current.value = null;
+    giftForRef.current.value = null;
   };
 
   const handleDelete = (id) => {
@@ -28,20 +45,31 @@ export default function App() {
     setGifts(newGifts);
   };
 
+  const handleDeleteAll = () => {
+    setGifts([]);
+  };
+
   return (
     <div className="App">
       <h1>Regalos:</h1>
       <div className="container-form">
-        <input
-          ref={giftRef}
-          type="text"
-          placeholder="Escriba su regalo aquí..."
-        />
+        <div>
+          <input
+            ref={giftNameRef}
+            type="text"
+            placeholder="Escriba su regalo aquí..."
+          />
+          <input ref={giftForRef} type="text" placeholder="Regalo para..." />
+        </div>
+
         <button type="submit" className="add-btn" onClick={handleAdd}>
           <BsFillPencilFill className="icon-pen" />
         </button>
       </div>
       <GiftList gifts={gifts} handleDelete={handleDelete} />
+      <button className="delete-all-btn" onClick={handleDeleteAll}>
+        Eliminar Todo
+      </button>
     </div>
   );
 }

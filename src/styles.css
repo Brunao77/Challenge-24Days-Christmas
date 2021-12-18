@@ -113,3 +113,11 @@ li {
   color: rgb(153, 253, 133);
   cursor: pointer;
 }
+
+.delete-all-btn {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 15vw;
+  height: 4vw;
+}
