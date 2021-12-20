@@ -65,7 +65,9 @@ export default function ModalComponent({ gifts, setGifts }) {
 
   return (
     <>
-      <Button onClick={onOpen}>Añadir Regalo</Button>
+      <Button onClick={onOpen} alignSelf="center">
+        Añadir Regalo
+      </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>

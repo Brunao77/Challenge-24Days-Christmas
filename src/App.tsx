@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Stack, Text, Button } from "@chakra-ui/react";
+import { Stack, Text, Button, Container } from "@chakra-ui/react";
 //import "./styles.css";
 import GiftList from "./components/GiftList";
 import ModalComponent from "./components/ModalComponent";
@@ -32,15 +32,31 @@ export default function App() {
   }, [gifts]);
 
   return (
-    <Stack justifyItems="center" alignSelf="center" textAlign="center">
-      <Text>Regalos:</Text>
-      <ModalComponent gifts={gifts} setGifts={setGifts} />
-      {gifts.length === 0 ? (
-        <Text className="gift-text">No hay regalos</Text>
-      ) : (
-        <GiftList gifts={gifts} handleDelete={handleDelete} />
-      )}
-      <Button onClick={handleDeleteAll}>Borrar Todo</Button>
-    </Stack>
+    <Container
+      w="100%"
+      maxW="100vw"
+      h="100vh"
+      backgroundImage="url('https://fondosmil.com/fondo/10472.jpg')"
+      backgroundRepeat="no-repeat"
+    >
+      <Stack
+        bg="transparent"
+        justifyItems="center"
+        alignSelf="center"
+        textAlign="center"
+        w="70vw"
+      >
+        <Text>Regalos:</Text>
+        <ModalComponent gifts={gifts} setGifts={setGifts} />
+        {gifts.length === 0 ? (
+          <Text className="gift-text">No hay regalos</Text>
+        ) : (
+          <GiftList gifts={gifts} handleDelete={handleDelete} />
+        )}
+        <Button onClick={handleDeleteAll} alignSelf="center">
+          Borrar Todo
+        </Button>
+      </Stack>
+    </Container>
   );
 }

@@ -6,7 +6,7 @@ export default extendTheme({
       body: {
         color: "blackAlpha.900",
         backgroundColor: "#EDEDED",
-        fontFamily: "Proxima Nova"
+        fontFamily: "Ubuntu"
       }
     }
   },
@@ -32,11 +32,7 @@ export default extendTheme({
     error: theme.colors.red,
     warning: theme.colors.orange
   },
-  sizes: {
-    container: {
-      xl: "1200px"
-    }
-  },
+  sizes: {},
   fonts: {
     body: "Proxima Nova",
     heading: "Proxima Nova"
@@ -64,18 +60,26 @@ export default extendTheme({
       }
     },
     Button: {
+      baseStyle: {
+        backgroundColor: "rgba(255, 255, 255, 0.575)",
+        border: "1px solid rgba(255, 255, 255, 0.575)",
+        fontWeight: "bold",
+        borderRadius: "base" // <-- border radius is same for all variants and sizes
+      },
       sizes: {
         lg: {
           fontSize: "md"
         }
+      }
+    },
+    Text: {
+      baseStyle: {
+        color: "white" // <-- border radius is same for all variants and sizes
       },
-      variants: {
-        ghost: ({ colorScheme = "secondary" }) => ({
-          backgroundColor: `${colorScheme}.50`,
-          ":hover, :focus": {
-            backgroundColor: `${colorScheme}.100`
-          }
-        })
+      sizes: {
+        lg: {
+          fontSize: "md"
+        }
       }
     },
     Input: {
