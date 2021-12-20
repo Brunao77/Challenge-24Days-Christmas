@@ -79,8 +79,8 @@ export default function ModalComponent({ gifts, setGifts }) {
                   type="text"
                   placeholder="Escriba su regalo aquí..."
                 />
-                <NumberInput ref={giftQuantRef} defaultValue={1} min={0}>
-                  <NumberInputField />
+                <NumberInput defaultValue={1} min={0}>
+                  <NumberInputField ref={giftQuantRef} />
                   <NumberInputStepper>
                     <NumberIncrementStepper />
                     <NumberDecrementStepper />
