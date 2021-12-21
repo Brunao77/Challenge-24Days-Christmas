@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Stack, Text, Button, Container } from "@chakra-ui/react";
-//import "./styles.css";
 import GiftList from "./components/GiftList";
 import ModalComponent from "./components/ModalComponent";
 
@@ -14,6 +13,22 @@ export default function App() {
   const handleDelete = (id) => {
     const newGifts = gifts.filter((gift) => gift.id !== id);
     setGifts(newGifts);
+  };
+
+  const handleEdit = (id, newName, newWhom, newUrlImg, newQuantity) => {
+    setGifts(
+      gifts.map((gift) =>
+        gift.id === id
+          ? {
+              id: id,
+              object: `${newName}`,
+              forWhom: `${newWhom}`,
+              urlImg: `${newUrlImg}`,
+              quantity: `${newQuantity}`
+            }
+          : gift
+      )
+    );
   };
 
   const handleDeleteAll = () => {
@@ -48,7 +63,11 @@ export default function App() {
           ¡No hay regalos!
         </Text>
       ) : (
-        <GiftList gifts={gifts} handleDelete={handleDelete} />
+        <GiftList
+          gifts={gifts}
+          handleDelete={handleDelete}
+          handleEdit={handleEdit}
+        />
       )}
       <Button
         onClick={handleDeleteAll}

@@ -1,9 +1,11 @@
-import { Button, Image, Tr, Td, Stack, Text } from "@chakra-ui/react";
+import { useRef } from "react";
+import { Button, Image, Stack, Text } from "@chakra-ui/react";
+import EditModal from "./EditModal";
 
-export default function GiftItem({ gift, handleDelete }) {
+export default function GiftItem({ gift, handleDelete, handleEdit }) {
   const { id, object, forWhom, urlImg, quantity } = gift;
 
-  const handleGiftClick = () => {
+  const handleGiftDeleteClick = () => {
     handleDelete(id);
   };
 
@@ -32,10 +34,18 @@ export default function GiftItem({ gift, handleDelete }) {
         _hover={{ bg: "rgba(255, 0, 0, 0.493)" }}
         backgroundColor="transparent"
         borderColor="rgba(255, 0, 0, 0.5)"
-        onClick={handleGiftClick}
+        onClick={handleGiftDeleteClick}
       >
         X
       </Button>
+      <EditModal
+        id={id}
+        title={object}
+        quantity={quantity}
+        forWhom={forWhom}
+        urlImg={urlImg}
+        handleEdit={handleEdit}
+      />
     </Stack>
   );
 }
