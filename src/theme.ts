@@ -4,9 +4,19 @@ export default extendTheme({
   styles: {
     global: {
       body: {
-        color: "blackAlpha.900",
-        backgroundColor: "#EDEDED",
-        fontFamily: "Ubuntu"
+        padding: "0",
+        margin: "0",
+        height: "100vh",
+        width: "100%",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundImage:
+          "url('https://images.pexels.com/photos/6101957/pexels-photo-6101957.jpeg')",
+        fontFamily: "Ubuntu",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
       }
     }
   },
@@ -61,9 +71,7 @@ export default extendTheme({
     },
     Button: {
       baseStyle: {
-        backgroundColor: "rgba(255, 255, 255, 0.575)",
         border: "1px solid rgba(255, 255, 255, 0.575)",
-        fontWeight: "bold",
         borderRadius: "base" // <-- border radius is same for all variants and sizes
       },
       sizes: {
@@ -74,7 +82,7 @@ export default extendTheme({
     },
     Text: {
       baseStyle: {
-        color: "white" // <-- border radius is same for all variants and sizes
+        color: "black" // <-- border radius is same for all variants and sizes
       },
       sizes: {
         lg: {

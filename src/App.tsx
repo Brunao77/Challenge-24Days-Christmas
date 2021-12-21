@@ -32,31 +32,32 @@ export default function App() {
   }, [gifts]);
 
   return (
-    <Container
-      w="100%"
-      maxW="100vw"
-      h="100vh"
-      backgroundImage="url('https://fondosmil.com/fondo/10472.jpg')"
-      backgroundRepeat="no-repeat"
+    <Stack
+      bg="rgba(255, 255, 255, 0.4)"
+      display="flex"
+      alignSelf="center"
+      textAlign="center"
+      borderRadius="20px"
+      w="40vw"
+      padding={4}
     >
-      <Stack
-        bg="transparent"
-        justifyItems="center"
+      <Text fontSize="5vw">Regalos:</Text>
+      <ModalComponent gifts={gifts} setGifts={setGifts} />
+      {gifts.length === 0 ? (
+        <Text className="gift-text" fontSize="3vw" padding={3}>
+          ¡No hay regalos!
+        </Text>
+      ) : (
+        <GiftList gifts={gifts} handleDelete={handleDelete} />
+      )}
+      <Button
+        onClick={handleDeleteAll}
+        color="whiteAlpha.800"
+        bg="blackAlpha.600"
         alignSelf="center"
-        textAlign="center"
-        w="70vw"
       >
-        <Text>Regalos:</Text>
-        <ModalComponent gifts={gifts} setGifts={setGifts} />
-        {gifts.length === 0 ? (
-          <Text className="gift-text">No hay regalos</Text>
-        ) : (
-          <GiftList gifts={gifts} handleDelete={handleDelete} />
-        )}
-        <Button onClick={handleDeleteAll} alignSelf="center">
-          Borrar Todo
-        </Button>
-      </Stack>
-    </Container>
+        Borrar Todo
+      </Button>
+    </Stack>
   );
 }

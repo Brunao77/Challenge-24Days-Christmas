@@ -3,7 +3,7 @@ import GiftItem from "./GiftItem";
 
 export default function GiftList({ gifts, handleDelete }) {
   return (
-    <Stack>
+    <Stack alignSelf="center" padding={3}>
       {gifts.map((gift) => (
         <GiftItem key={gift.id} gift={gift} handleDelete={handleDelete} />
       ))}

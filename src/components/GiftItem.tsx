@@ -16,19 +16,26 @@ export default function GiftItem({ gift, handleDelete }) {
         textAlign="initial"
         justifyContent="center"
         w="100%"
-        maxW="10vw"
+        maxW="20vw"
       >
-        <Text fontSize="xl" color="whiteAlpha.800">
-          {object}
+        <Text fontSize="xl">
+          {object} ({quantity})
         </Text>
-        <Text fontSize="sm" color="whiteAlpha.500">
+        <Text fontSize="sm" color="blackAlpha.600">
           {forWhom}
         </Text>
       </Stack>
-      <Text textAlign="center" AlignSelf="center">
-        x{quantity}
-      </Text>
-      <Button onClick={handleGiftClick}>X</Button>
+      <Button
+        w="100%"
+        maxW="1vw"
+        h={8}
+        _hover={{ bg: "rgba(255, 0, 0, 0.493)" }}
+        backgroundColor="transparent"
+        borderColor="rgba(255, 0, 0, 0.5)"
+        onClick={handleGiftClick}
+      >
+        X
+      </Button>
     </Stack>
   );
 }

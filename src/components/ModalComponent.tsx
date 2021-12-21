@@ -65,7 +65,12 @@ export default function ModalComponent({ gifts, setGifts }) {
 
   return (
     <>
-      <Button onClick={onOpen} alignSelf="center">
+      <Button
+        onClick={onOpen}
+        bg="blackAlpha.600"
+        color="whiteAlpha.800"
+        alignSelf="center"
+      >
         Añadir Regalo
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
