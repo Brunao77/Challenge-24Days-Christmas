@@ -24,12 +24,15 @@ export default function EditModal({
   quantity,
   forWhom,
   urlImg,
+  price,
   handleEdit
 }) {
   const giftNameRef = useRef();
   const giftForRef = useRef();
   const giftImgRef = useRef();
   const giftQuantRef = useRef();
+  const giftPriceRef = useRef();
+
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleGiftEditClick = () => {
@@ -37,8 +40,9 @@ export default function EditModal({
     const giftFor = giftForRef.current.value;
     const giftUrlImg = giftImgRef.current.value;
     const giftQuant = giftQuantRef.current.value;
+    const giftPrice = giftPriceRef.current.value;
 
-    handleEdit(id, giftName, giftFor, giftUrlImg, giftQuant);
+    handleEdit(id, giftName, giftFor, giftUrlImg, giftQuant, giftPrice);
   };
 
   return (
@@ -87,6 +91,12 @@ export default function EditModal({
                 defaultValue={urlImg}
                 type="text"
                 placeholder="Inserte su imagen aquí..."
+              />
+              <Input
+                ref={giftPriceRef}
+                defaultValue={price}
+                type="text"
+                placeholder="Inserte el precio aquí..."
               />
             </Stack>
           </ModalBody>

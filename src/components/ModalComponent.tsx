@@ -24,6 +24,8 @@ export default function ModalComponent({ gifts, setGifts }) {
   const giftForRef = useRef();
   const giftImgRef = useRef();
   const giftQuantRef = useRef();
+  const giftPriceRef = useRef();
+
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleAdd = () => {
@@ -31,6 +33,7 @@ export default function ModalComponent({ gifts, setGifts }) {
     const giftFor = giftForRef.current.value;
     const giftUrlImg = giftImgRef.current.value;
     const giftQuant = giftQuantRef.current.value;
+    const giftPrice = giftPriceRef.current.value;
 
     if (giftName === "") return;
 
@@ -41,7 +44,8 @@ export default function ModalComponent({ gifts, setGifts }) {
           object: giftName,
           forWhom: giftFor,
           urlImg: giftUrlImg,
-          quantity: giftQuant
+          quantity: giftQuant,
+          price: giftPrice
         },
         ...gifts
       ]);
@@ -55,7 +59,8 @@ export default function ModalComponent({ gifts, setGifts }) {
             object: giftName,
             forWhom: giftFor,
             urlImg: giftUrlImg,
-            quantity: giftQuant
+            quantity: giftQuant,
+            price: giftPrice
           },
           ...gifts
         ]);
@@ -103,6 +108,11 @@ export default function ModalComponent({ gifts, setGifts }) {
                 ref={giftImgRef}
                 type="text"
                 placeholder="Inserte su imagen aquí..."
+              />
+              <Input
+                ref={giftPriceRef}
+                type="text"
+                placeholder="Inserte el precio aquí..."
               />
             </Stack>
           </ModalBody>

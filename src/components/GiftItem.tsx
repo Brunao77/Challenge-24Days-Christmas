@@ -3,7 +3,7 @@ import { Button, Image, Stack, Text } from "@chakra-ui/react";
 import EditModal from "./EditModal";
 
 export default function GiftItem({ gift, handleDelete, handleEdit }) {
-  const { id, object, forWhom, urlImg, quantity } = gift;
+  const { id, object, forWhom, urlImg, quantity, price } = gift;
 
   const handleGiftDeleteClick = () => {
     handleDelete(id);
@@ -27,6 +27,7 @@ export default function GiftItem({ gift, handleDelete, handleEdit }) {
           {forWhom}
         </Text>
       </Stack>
+      <Text>${price * quantity}</Text>
       <Button
         w="100%"
         maxW="1vw"
@@ -44,6 +45,7 @@ export default function GiftItem({ gift, handleDelete, handleEdit }) {
         quantity={quantity}
         forWhom={forWhom}
         urlImg={urlImg}
+        price={price}
         handleEdit={handleEdit}
       />
     </Stack>

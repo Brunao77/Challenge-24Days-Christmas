@@ -5,9 +5,30 @@ import ModalComponent from "./components/ModalComponent";
 
 export default function App() {
   const [gifts, setGifts] = useState([
-    { id: 1, object: "Medias", forWhom: "aa", urlImg: "", quantity: "1" },
-    { id: 2, object: "Vitel Tone", forWhom: "bb", urlImg: "", quantity: "1" },
-    { id: 3, object: "Caramelos", forWhom: "cc", urlImg: "", quantity: "1" }
+    {
+      id: 1,
+      object: "Medias",
+      forWhom: "aa",
+      urlImg: "",
+      quantity: "1",
+      price: "100"
+    },
+    {
+      id: 2,
+      object: "Vitel Tone",
+      forWhom: "bb",
+      urlImg: "",
+      quantity: "1",
+      price: "200"
+    },
+    {
+      id: 3,
+      object: "Caramelos",
+      forWhom: "cc",
+      urlImg: "",
+      quantity: "1",
+      price: "200"
+    }
   ]);
 
   const handleDelete = (id) => {
@@ -15,7 +36,14 @@ export default function App() {
     setGifts(newGifts);
   };
 
-  const handleEdit = (id, newName, newWhom, newUrlImg, newQuantity) => {
+  const handleEdit = (
+    id,
+    newName,
+    newWhom,
+    newUrlImg,
+    newQuantity,
+    newPrice
+  ) => {
     setGifts(
       gifts.map((gift) =>
         gift.id === id
@@ -24,7 +52,8 @@ export default function App() {
               object: `${newName}`,
               forWhom: `${newWhom}`,
               urlImg: `${newUrlImg}`,
-              quantity: `${newQuantity}`
+              quantity: `${newQuantity}`,
+              price: `${newPrice}`
             }
           : gift
       )
@@ -53,7 +82,7 @@ export default function App() {
       alignSelf="center"
       textAlign="center"
       borderRadius="20px"
-      w="40vw"
+      w="500px"
       padding={4}
     >
       <Text fontSize="5vw">Regalos:</Text>
