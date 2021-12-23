@@ -1,6 +1,6 @@
 import { Image, Stack, Text } from "@chakra-ui/react";
 
-export default function GiftItemModal({ gift }) {
+export default function GiftItemPreviewModal({ gift }) {
   const { object, forWhom, urlImg, quantity } = gift;
 
   return (

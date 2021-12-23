@@ -18,8 +18,9 @@ import {
   NumberDecrementStepper
 } from "@chakra-ui/react";
 import { v4 as uuidv4 } from "uuid";
+import { BsFillPencilFill } from "react-icons/bs";
 
-export default function ModalComponent({ gifts, setGifts }) {
+export default function AddModal({ gifts, setGifts }) {
   const giftNameRef = useRef();
   const giftForRef = useRef();
   const giftImgRef = useRef();
@@ -71,9 +72,13 @@ export default function ModalComponent({ gifts, setGifts }) {
   return (
     <>
       <Button
+        borderColor="rgb(255, 215, 0,0.7)"
+        boxShadow="md"
+        rightIcon={<BsFillPencilFill />}
         onClick={onOpen}
-        bg="blackAlpha.600"
-        color="whiteAlpha.800"
+        bg="rgb(255, 215, 0,0.7)"
+        _hover={{ bg: "rgb(255, 215, 0,1)" }}
+        color="white"
         alignSelf="center"
       >
         Añadir Regalo

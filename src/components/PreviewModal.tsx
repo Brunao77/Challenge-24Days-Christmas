@@ -9,22 +9,27 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure
+  useDisclosure,
+  Icon
 } from "@chakra-ui/react";
-import GiftItemModal from "./GiftItemModal";
+import GiftItemPreviewModal from "./GiftItemPreviewModal";
+import { IoIosListBox } from "react-icons/io";
 
-export default function GiftsListModal({ gifts }) {
+export default function PreviewModal({ gifts }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
       <Button
+        borderColor="whatsapp.500"
+        boxShadow="sm"
         onClick={onOpen}
-        bg="blackAlpha.600"
-        color="whiteAlpha.800"
+        bg="whatsapp.500"
+        _hover={{ bg: "whatsapp.600" }}
+        color="white"
         alignSelf="center"
       >
-        Previsualizar
+        <Icon as={IoIosListBox} />
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -39,7 +44,7 @@ export default function GiftsListModal({ gifts }) {
               maxHeight="400px"
             >
               {gifts.map((gift) => (
-                <GiftItemModal key={gift.id} gift={gift} />
+                <GiftItemPreviewModal key={gift.id} gift={gift} />
               ))}
             </Stack>
           </ModalBody>

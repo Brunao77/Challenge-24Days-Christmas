@@ -19,7 +19,7 @@ body {
 }
 
 ::selection {
-  background: rgba(0, 17, 255, 0.432);
+  background: rgb(255, 238, 0);
 }
 
 .App {

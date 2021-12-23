@@ -15,8 +15,10 @@ import {
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
-  NumberDecrementStepper
+  NumberDecrementStepper,
+  Icon
 } from "@chakra-ui/react";
+import { AiOutlineEdit } from "react-icons/ai";
 
 export default function EditModal({
   id,
@@ -56,7 +58,7 @@ export default function EditModal({
         backgroundColor="transparent"
         borderColor="rgba(0, 17, 255, 0.5)"
       >
-        Edit
+        <Icon as={AiOutlineEdit} />
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

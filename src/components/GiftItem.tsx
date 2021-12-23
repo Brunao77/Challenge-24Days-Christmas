@@ -28,6 +28,15 @@ export default function GiftItem({ gift, handleDelete, handleEdit }) {
         </Text>
       </Stack>
       <Text>${price * quantity}</Text>
+      <EditModal
+        id={id}
+        title={object}
+        quantity={quantity}
+        forWhom={forWhom}
+        urlImg={urlImg}
+        price={price}
+        handleEdit={handleEdit}
+      />
       <Button
         w="100%"
         maxW="1vw"
@@ -39,15 +48,6 @@ export default function GiftItem({ gift, handleDelete, handleEdit }) {
       >
         X
       </Button>
-      <EditModal
-        id={id}
-        title={object}
-        quantity={quantity}
-        forWhom={forWhom}
-        urlImg={urlImg}
-        price={price}
-        handleEdit={handleEdit}
-      />
     </Stack>
   );
 }
