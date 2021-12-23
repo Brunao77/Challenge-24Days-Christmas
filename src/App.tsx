@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Stack, Text, Button, Container } from "@chakra-ui/react";
+import { Stack, Text, Button } from "@chakra-ui/react";
 import GiftList from "./components/GiftList";
 import ModalComponent from "./components/ModalComponent";
+import GiftsListModal from "./components/GiftsListModal";
 
 export default function App() {
   const [gifts, setGifts] = useState([
@@ -64,6 +65,14 @@ export default function App() {
     setGifts([]);
   };
 
+  const Totalprices = () => {
+    let TotalPrices = 0;
+    gifts.map((gift) => {
+      TotalPrices += parseInt(gift.price) * parseInt(gift.quantity);
+    });
+    return TotalPrices;
+  };
+
   useEffect(() => {
     const storedGifts = JSON.parse(localStorage.getItem("giftsApp"));
     if (storedGifts) {
@@ -98,6 +107,7 @@ export default function App() {
           handleEdit={handleEdit}
         />
       )}
+      <Text>Total: $ {Totalprices()}</Text>
       <Button
         onClick={handleDeleteAll}
         color="whiteAlpha.800"
@@ -106,6 +116,7 @@ export default function App() {
       >
         Borrar Todo
       </Button>
+      <GiftsListModal gifts={gifts} />
     </Stack>
   );
 }

@@ -1,4 +1,4 @@
-import { Table, Thead, Th, Tr, Tbody, Stack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 import GiftItem from "./GiftItem";
 
 export default function GiftList({ gifts, handleDelete, handleEdit }) {
